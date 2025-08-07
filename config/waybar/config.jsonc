@@ -1,0 +1,193 @@
+{
+  //////////////////////////////////////////////////////////////////////
+  // Waybar – Rose-Pine themed configuration
+  //////////////////////////////////////////////////////////////////////
+  "reload_style_on_change": true,
+  "layer": "top",
+  "height": 47,
+  "reload_style_on_change": true,
+
+  //////////////////////////////////////////////////////////////////////////
+  // MODULE ORDER
+  //////////////////////////////////////////////////////////////////////////
+  "modules-left": [
+    "hyprland/workspaces",
+    "mpris",
+    "gamemode",
+    "privacy"
+  ],
+
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+    "tray",
+    "custom/kernel",
+    "cpu",
+    "memory",
+    "pulseaudio",
+    "power-profiles-daemon",
+    "battery"
+  ],
+
+  //////////////////////////////////////////////////////////////////////////
+  // LEFT-SIDE MODULES
+  //////////////////////////////////////////////////////////////////////////
+  "hyprland/workspaces": {
+    "format": "<span size='small' font='normal Font Awesome 6 Free'>{icon}</span>",
+    "on-click": "activate",
+    "sort-by-number": true,
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1",
+    "format-icons": { "1":"1", "2":"2", "3":"3", "4":"4", "5":"5" }
+  },
+
+  "mpris": {
+    "format": "{player_icon}  {title} - {artist}",
+    "format-paused": "{status_icon}  {title} - {artist}",
+    "max-length": 50,
+    "dynamic-len": 10,
+    // "player": "spotify",        // uncomment to pin to Spotify only
+    "on-scroll-up":   "playerctl --player=spotify volume 0.05+",
+    "on-scroll-down": "playerctl --player=spotify volume 0.05-",
+    "player-icons": {
+      "default":  "󰎈",
+      "mpv":      "",
+      "vlc":      "<span color='#E85E00'>󰕼</span>",
+      "spotify":  "<span color='#1DB954'></span>",
+      "brave":    "<span font='normal Font Awesome 6 Free' color='#ed7009'></span>"
+    },
+    "status-icons": { "paused":"⏸", "playing":"", "stopped":"" }
+  },
+
+  "gamemode": {
+    "format": "{glyph}",
+    "format-alt": "{glyph} {count}",
+    "glyph": "",
+    "hide-not-running": true,
+    "use-icon": true,
+    "icon-name": "input-gaming-symbolic",
+    "icon-spacing": 4,
+    "icon-size": 20,
+    "tooltip": true,
+    "tooltip-format": "Games running: {count}"
+  },
+
+  "privacy": {
+    "icon-spacing": 4,
+    "icon-size": 12,
+    "transition-duration": 250,
+    "modules": [
+      { "type": "screenshare", "tooltip": true, "tooltip-icon-size": 12 },
+      { "type": "audio-in",    "tooltip": true, "tooltip-icon-size": 12 }
+    ]
+  },
+
+  //////////////////////////////////////////////////////////////////////////
+  // CENTER MODULE
+  //////////////////////////////////////////////////////////////////////////
+"clock": {
+    "interval": 1,
+
+  // what you see normally ──►  🕒 Tue, Jul 02 – 22:41
+  "format":      "🕒 {:%a, %b %d | %H:%M:%S}",
+
+  // what you see after a left-click ──►  📆 Tuesday, July 02 2025
+  "format-alt": "📆 {:%A, %B %d %Y}",
+
+  // hover tooltip calendar
+  "tooltip-format": "{calendar}"
+},
+
+  //////////////////////////////////////////////////////////////////////////
+  // RIGHT-SIDE MODULES
+  //////////////////////////////////////////////////////////////////////////
+  "tray": {
+    "icon-size": 15,
+    "spacing": 10
+  },
+
+  "custom/kernel": {
+      "format": "❤ {}",
+  "interval": 3600,
+      "max-length": 20,
+      "exec": "uname -r"
+    },
+
+  "cpu": {
+    "interval": 30,
+    "format": " {usage}%",
+    "max-length": 10,
+    "on-click": "alacritty -e btm"
+  },
+
+  "memory": {
+    "interval": 30,
+    "format": "  {used:0.1f} GB"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%{format_source}",
+    "format-bluetooth": "{volume}% {icon} ",
+    "format-muted": "󰖁 0% {format_source}",
+    "format-icons": {
+      "headphone":  "",
+      "hands-free": "",
+      "headset":    "",
+      "phone":      "",
+      "portable":   "",
+      "car":        "",
+      "default":    ["",""]
+    },
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"],
+    "format-source": "",
+    "format-source-muted": ""
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": { "default":"", "performance":"", "balanced":"", "power-saver":"" }
+  },
+
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": {
+            "charging": [
+                "󰢜",
+                "󰂆",
+                "󰂇",
+                "󰂈",
+                "󰢝",
+                "󰂉",
+                "󰢞",
+                "󰂊",
+                "󰂋",
+                "󰂅"
+            ],
+            "default": [
+                "󰁺",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂",
+                "󰁹"
+            ]
+        },
+        "format-full": "Charged ",
+        "interval": 5,
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "tooltip": false
+    },
+}

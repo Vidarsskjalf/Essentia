@@ -1,0 +1,153 @@
+/* ──────────────────────────────────────────────────────────────
+   Waybar – rose-pine main
+   Palette  : https://rosepinetheme.com/palette
+   Font     : GeistMonoNerdFont
+   ────────────────────────────────────────────────────────────── */
+
+* {
+    font-family: "GeistMonoNerdFont", monospace;
+    font-weight: bold;
+    font-size: 14px;
+    min-height: 0;
+}
+
+/* rose-pine colours */
+@define-color base #191724;
+@define-color surface #1f1d2e;
+@define-color overlay #26233a;
+@define-color muted #6e6a86;
+@define-color text #e0def4;
+
+@define-color love #eb6f92;
+@define-color gold #f6c177;
+@define-color rose #ebbcba;
+@define-color pine #31748f;
+@define-color foam #9ccfd8;
+@define-color iris #c4a7e7;
+
+/* -------------- Bar container ------------------------------- */
+window#waybar {
+    background: transparent;
+    /* keep bar floating on wallpaper */
+    color: @text;
+}
+
+/* -------------- Tooltips ------------------------------------ */
+tooltip {
+    font-family: inherit;
+    background: @surface;
+    border: 2px solid @iris;
+    border-radius: 6px;
+    padding: 4px 8px;
+    color: @text;
+}
+
+/* -------------- Shared pill style --------------------------- */
+#workspaces button,
+#mpris,
+#privacy-item,
+#bluetooth,
+#clock,
+#tray,
+#cpu,
+#power-profiles-daemon,
+#memory,
+#pulseaudio,
+#battery,
+#gamemode,
+#custom-updates {
+    background: @overlay;
+    color: @foam;
+    border-radius: 8px;
+    margin: 10px 4px 4px 4px;
+    /* top | right | bottom | left */
+    padding: 4px 10px;
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.18);
+}
+
+#custom-kernel {
+    background: @overlay;
+    color: @foam;
+    border-radius: 8px;
+    margin: 10px 4px 4px 4px;
+    padding: 4px 10px;
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.18);
+}
+
+#custom-kernel {
+    color: @rose;
+}
+
+/* -------------- Clock tweaks -------------------------------- */
+#clock {
+    padding-right: 6px;
+}
+
+/* -------------- Workspaces ---------------------------------- */
+#workspaces {
+    padding: 0 3px;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    margin-left: 3px;
+    border: 1px solid transparent;
+    transition: background 0.1s, color 0.1s;
+    font-size: 10px;
+    color: @iris;
+    /* inactive workspace number */
+}
+
+#workspaces button:first-child {
+    margin-left: 0;
+}
+
+#workspaces button.empty {
+    padding: 0 10px;
+}
+
+#workspaces button.active {
+    /* current workspace */
+    background: @pine;
+    color: @base;
+}
+
+#workspaces button:hover {
+    background: @foam;
+    color: @base;
+}
+
+/* -------------- Volume / Audio ------------------------------ */
+#pulseaudio.muted {
+    color: @muted;
+}
+
+/* -------------- Battery states ------------------------------ */
+#battery.warning {
+    color: @gold;
+}
+
+/* below 25 % (set in JSON) */
+#battery.critical {
+    color: @love;
+}
+
+/* below 10 % */
+
+/* -------------- Power profiles ------------------------------ */
+#power-profiles-daemon {
+    color: @iris;
+}
+
+/* -------------- Privacy item (mic / cam / share) ------------ */
+#privacy-item {
+    background: @love;
+    color: @base;
+}
+
+/* -------------- Blink animation for urgent modules ---------- */
+@keyframes blink {
+    to {
+        background-color: @love;
+    }
+}
