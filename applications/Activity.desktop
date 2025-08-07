@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Activity
+Comment=System activity from btop
+Exec=alacritty --class=Activity --title=Activity -e btm
+Terminal=false
+Type=Application
+Icon=Activity
+Categories=GTK;
+StartupNotify=false
