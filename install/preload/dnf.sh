@@ -1,13 +1,14 @@
 #!/bin/bash
 
-# Install rmp fusion repo
+# Enable RPM Fusion repos
 sudo dnf install \
-    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
-# Back up dnf.conf file
+# Backup current config
 sudo cp /etc/dnf/dnf.conf /etc/dnf/dnf.conf.bak
 
-# Added dnf tweaks
+# Optimize DNF config
 sudo tee /etc/dnf/dnf.conf > /dev/null <<EOF
 [main]
 gpgcheck=1
