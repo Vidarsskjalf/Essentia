@@ -1,29 +1,48 @@
 <h1 align="center">Essentia</h1>
 <p align="center"><i>Built for speed. Tuned for control.</i></p>
 
-### Dependencies
+Essentia is a fully-scripted, minimal Fedora + Hyprland environment with essential apps, developer tools, and themed configurations. Designed for fast setups, reproducible installs, and clean workflows.
 
-You will need Hyprland installed.
+Tested on **Fedora Linux** with **Hyprland (Wayland)**.
 
-<div style="border-left: 4px solid #c8bfa1ff; padding: 12px 100px 1px 12px; background-color: #0000003e; margin-bottom: 8px">
-<strong>Window Manager:</strong><br>
+### Included Software
 
-`Hyprland` | `Hyprpaper`
+**Desktop Environment:**
+- `Hyprland` (Wayland WM)
+- `waybar` (status bar)
+- `mako` (notifications)
+- `lxappearance` (GTK theming)
+- `thunar` (file manager)
 
-</div>
+**Terminal Stack:**
+- `alacritty` (GPU-accelerated terminal)
+- `bash` (shell) with your own custom configs
+- `fastfetch` (minimal system info splash)
+- `wl-clipboard` (Wayland clipboard support)
 
-<div style="border-left: 4px solid #c8bfa1ff; padding: 12px 100px 1px 12px; background-color: #0000003e; margin-bottom: 8px">
-<strong>Applications:</strong><br>
+**Networking & Tooling:**
+- `nmcli` / `bluetoothctl` for network control
+- `openssh`, `curl`, `wget`, `nmap`, `htop`, `btm`
 
-`thunar`, `alacritty`, `lxappearance`, `waybar`
+**Dev & Engineering Essentials:**
+- `docker` (containerization)
+- `git` (version control)
+- `podman` (alternative container runtime)
+- `jq`, `yq` (CLI JSON/YAML tools)
+- `neovim` (if not installed, you’re not working)
 
-</div>
+**Fedora-Specific Tools:**
+- `dnf` (base package manager)
+- `flatpak` (for GUI apps like Signal, Chromium, Bitwarden)
 
-<div style="border-left: 4px solid #c8bfa1ff; padding: 12px 4px 1px 12px; background-color: #0000003e; margin-bottom: 8px">
-<strong>Utilities:</strong><br>
+**Optional Flatpak Tools:**
+- `Signal`, `Bitwarden`, `OBS Studio`, `Chromium` with Wayland flags
 
-`Hyprshot`, `wl-clipboard`, `mako`
+### Installation
 
-</div>
-
-<br>
+```bash
+git clone https://github.com/vidarsskjalf/essentia.git
+cd essentia
+chmod +x install.sh
+./install.sh
+```
