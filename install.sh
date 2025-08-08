@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 ESSENTIA_INSTALL=~/.local/share/essentia/install
 
 # Preload
