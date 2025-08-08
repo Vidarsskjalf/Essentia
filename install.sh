@@ -1,13 +1,15 @@
 #!/bin/bash
 
+ESSENTIA_INSTALL=~/.local/share/essentia/install
+
 # Preload
-bash install/preload/dnf.sh
-bash install/preload/flatpak.sh
+source $ESSENTIA_INSTALL/preload/dnf.sh
+source $ESSENTIA_INSTALL/preload/flatpak.sh
 
 # Desktop
-bash install/desktop/hyprland.sh
-bash install/desktop/bluetooth.sh
+source $ESSENTIA_INSTALL/desktop/hyprland.sh
+source $ESSENTIA_INSTALL/desktop/bluetooth.sh
 
 # Engineering
-bash install/engineering/terminal.sh
-bash install/engineering/docker.sh
+source $ESSENTIA_INSTALL/engineering/terminal.sh
+source $ESSENTIA_INSTALL/engineering/docker.sh
