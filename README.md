@@ -43,6 +43,6 @@ Tested on **Fedora Linux** with **Hyprland (Wayland)**.
 ```bash
 git clone https://github.com/vidarsskjalf/essentia.git
 cd essentia
-chmod +x install.sh
-./install.sh
+chmod +x boot.sh
+./boot.sh
 ```
