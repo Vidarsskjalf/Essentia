@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dnf install docker docker-compose
+sudo dnf install docker docker-compose -y
 
 # Start Docker automatically
 sudo systemctl enable docker

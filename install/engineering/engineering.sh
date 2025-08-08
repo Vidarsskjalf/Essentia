@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo dnf install -y \
+sudo dnf install \
     git neovim \
     gcc make \
     ffmpeg celluloid

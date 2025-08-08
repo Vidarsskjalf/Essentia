@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dnf install -y \
+dnf install \
     wget curl unzip tar \
     wl-clipboard fastfetch btm \
     man less tree \
